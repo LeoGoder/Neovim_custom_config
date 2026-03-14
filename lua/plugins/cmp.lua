@@ -12,13 +12,29 @@ return {
     local luasnip = require("luasnip")
 
     cmp.setup({
+      -- ==========================================================
+      -- Configuration de l'apparence des fenêtres (Bordures)
+      -- ==========================================================
+      window = {
+        -- Bordures arrondies pour le menu principal de complétion
+        completion = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+        }),
+        -- Bordures arrondies pour la petite fenêtre de documentation à côté
+        documentation = cmp.config.window.bordered({
+          border = "rounded",
+          winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+        }),
+      },
+
       -- Obligatoire : dire à nvim-cmp quel moteur de snippets utiliser
       snippet = {
         expand = function(args)
           luasnip.lsp_expand(args.body)
         end,
       },
-      
+
       -- Tes raccourcis clavier pour naviguer dans le menu
       mapping = cmp.mapping.preset.insert({
         ["<C-k>"] = cmp.mapping.select_prev_item(), -- Ctrl+k pour monter
@@ -27,13 +43,13 @@ return {
         ["<C-e>"] = cmp.mapping.abort(),            -- Ctrl+e pour fermer le menu
         ["<CR>"] = cmp.mapping.confirm({ select = false }), -- Entrée pour valider la suggestion
       }),
-      
+
       -- L'ordre d'importance de tes sources de complétion
       sources = cmp.config.sources({
         { name = "nvim_lsp" }, -- En premier, les lsp
-        { name = "luasnip" }, -- En premier, les snippets
-        { name = "buffer" },  -- Ensuite, le texte du fichier
-        { name = "path" },    -- Et les chemins de fichiers
+        { name = "luasnip" },  -- En deuxieme, les snippets
+        { name = "buffer" },   -- Ensuite, le texte du fichier
+        { name = "path" },     -- Et les chemins de fichiers
       }),
     })
   end,
