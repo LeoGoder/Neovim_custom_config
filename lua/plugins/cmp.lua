@@ -30,6 +30,7 @@ return {
       
       -- L'ordre d'importance de tes sources de complétion
       sources = cmp.config.sources({
+        { name = "nvim_lsp" }, -- En premier, les lsp
         { name = "luasnip" }, -- En premier, les snippets
         { name = "buffer" },  -- Ensuite, le texte du fichier
         { name = "path" },    -- Et les chemins de fichiers
