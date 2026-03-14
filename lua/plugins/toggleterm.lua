@@ -19,7 +19,7 @@ return {
       },
       shade_terminals = true,
     })
-
+	vim.keymap.set("n", "<leader><leader>", "<cmd>ToggleTerm<CR>", { noremap = true, silent = true, desc = "Toggle Terminal" })
     -- Raccourcis pratiques pour naviguer dans le terminal
     function _G.set_terminal_keymaps()
       local opts = { buffer = 0 }
