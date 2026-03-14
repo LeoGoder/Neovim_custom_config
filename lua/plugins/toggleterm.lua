@@ -1,10 +1,18 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
+  -- On définit le raccourci ici pour contrôler exactement le mode
+  keys = {
+    {
+      "<leader><leader>",
+      "<cmd>ToggleTerm<CR>",
+      mode = "n", -- Uniquement en mode Normal
+      desc = "Ouvrir/Fermer le terminal (ToggleTerm)",
+    },
+  },
   config = function()
     require("toggleterm").setup({
-      -- La touche pour ouvrir le terminal (leader + tab)
-      open_mapping = [[<leader><leader>]],
+      -- On a retiré open_mapping d'ici car il est géré par lazy.nvim plus haut
       direction = "float",
       float_opts = {
         border = "curved",
