@@ -34,7 +34,8 @@ return {
         linux = " ",
         windows = " ",
         space_invader = "󰯉 ",
-        playstation = "󰐔 "
+        playstation = "󰐔 ",
+	git = "",
       }
 
       -- 2. On crée le thème personnalisé
@@ -72,7 +73,7 @@ return {
         },
         sections = {
           lualine_a = { { "mode", fmt = function(str) return icons.space_invader .. (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
-          lualine_b = { "branch" },
+          lualine_b = { {"branch", icon = icons.git} },
           lualine_c = { "filetype", "filename" }, -- C'est ici le milieu
           lualine_x = { "encoding", "fileformat" },
           lualine_y = { "progress" },
