@@ -12,7 +12,7 @@ return {
     -- 2. Configurer mason-lspconfig
     -- Dans les nouvelles versions, il se charge de démarrer les serveurs tout seul !
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls" }, 
+      ensure_installed = { "lua_ls" },
     })
 
     -- 3. NOUVELLE MÉTHODE : On injecte les capacités d'autocomplétion 
@@ -23,6 +23,35 @@ return {
       lspconfig_defaults.capabilities,
       require("cmp_nvim_lsp").default_capabilities()
     )
+-- ==========================================================
+    -- Configuration de l'affichage des erreurs et warnings
+    -- ==========================================================
+    vim.diagnostic.config({
+      -- Affiche le texte d'erreur directement à la fin de la ligne (Virtual Text)
+      virtual_text = {
+        prefix = '●', -- Le petit symbole avant le texte (tu peux mettre '■' ou 'x' si tu préfères)
+        source = "if_many", -- Affiche la source (ex: rust_analyzer) s'il y a plusieurs LSP
+      },
+      
+      -- Affiche les icônes dans la marge tout à gauche
+      signs = true,
+      
+      -- Souligne le bout de code qui pose problème
+      underline = true,
+      
+      -- Ne met pas à jour les erreurs pendant que tu tapes (attends que tu sortes du mode insertion)
+      -- C'est beaucoup plus agréable pour ne pas voir l'écran clignoter en rouge à chaque lettre !
+      update_in_insert = false,
+      -- Trie les problèmes pour toujours afficher les erreurs fatales en premier
+      severity_sort = true,
+    })
+
+    -- Ajout des icônes classiques de LazyVim pour la marge de gauche
+    local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+    for type, icon in pairs(signs) do
+      local hl = "DiagnosticSign" .. type
+      vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+    end
 
     -- 4. Quelques raccourcis clavier très utiles pour le LSP
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Aller à la définition" })
