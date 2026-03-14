@@ -25,6 +25,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.shiftwidth = 8
 	end,
 })
-vim.opt.pumblend = 10 -- Option de transparence (0 à 100)
 -- 2. Initialisation de Lazy en lui disant de charger le dossier "lua/plugins"
 require("lazy").setup("plugins")
