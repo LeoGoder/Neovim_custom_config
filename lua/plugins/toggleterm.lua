@@ -4,7 +4,7 @@ return {
   config = function()
     require("toggleterm").setup({
       -- La touche pour ouvrir le terminal (leader + tab)
-      open_mapping = [[<leader><Tab>]],
+      open_mapping = [[<leader><leader>]],
       direction = "float",
       float_opts = {
         border = "curved",
