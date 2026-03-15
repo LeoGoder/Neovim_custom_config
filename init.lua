@@ -21,6 +21,7 @@ vim.opt.relativenumber = true  -- Affiche les distances relatives pour les autre
 vim.keymap.set('i', '<C-l>', '<Esc>', { noremap = true })
 vim.keymap.set('v', '<C-l>', '<Esc>', { noremap = true })
 vim.keymap.set('c', '<C-l>', '<Esc>', { noremap = true })
+vim.keymap.set('t', '<C-l>', [[<C-\><C-n>]], { noremap = true })
 -- config special for c/c++ and make
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "c", "cpp", "make" },
