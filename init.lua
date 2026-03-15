@@ -15,6 +15,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Définir la touche "leader" (Espace est très commun et recommandé)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+vim.opt.number = true          -- Affiche le numéro de la ligne actuelle
+vim.opt.relativenumber = true  -- Affiche les distances relatives pour les autres lignes
 
 -- config special for c/c++ and make
 vim.api.nvim_create_autocmd("FileType", {
