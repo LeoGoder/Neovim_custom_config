@@ -7,11 +7,11 @@ return {
     "MunifTanjim/nui.nvim",
   },
   keys = {
-    { 
-      "<leader>e", 
-      "<cmd>Neotree toggle<CR>", 
-      mode = "n", 
-      desc = "Ouvrir/Fermer l'explorateur" 
+    {
+      "<leader>e",
+      "<cmd>Neotree toggle<CR>",
+      mode = "n",
+      desc = "Ouvrir/Fermer l'explorateur"
     },
   },
   config = function()
@@ -22,16 +22,15 @@ return {
 
     require("neo-tree").setup({
       close_if_last_window = true,
-      
       -- Configuration spécifique de la fenêtre
 	window = {
-        position = "float", 
-        popup = { 
+        position = "float",
+        popup = {
           border = "rounded",
           -- C'est cette ligne qui centre la fenêtre :
-          position = "50%", 
+          position = "50%",
           -- Tu peux aussi ajuster la taille si tu la trouves trop petite/grande :
-          size = { width = 80, height = "80%" }, 
+          size = { width = 80, height = "80%" },
         },
         mappings = {
           -- Tes raccourcis...

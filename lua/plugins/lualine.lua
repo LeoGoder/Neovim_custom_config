@@ -39,6 +39,21 @@ return {
 	grapefruit_pink = "fe6d73"
       }
 
+	local dracula = {
+	    background   = "#282A36",
+	    current_line = "#44475A",
+	    selection    = "#44475A",
+	    foreground   = "#F8F8F2",
+	    comment      = "#6272A4",
+	    red          = "#FF5555",
+	    orange       = "#FFB86C",
+	    yellow       = "#F1FA8C",
+	    green        = "#50FA7B",
+	    cyan         = "#8BE9FD",
+	    purple       = "#BD93F9",
+	    pink         = "#FF79C6",
+	}
+
       local icons = {
         nvim = " ",
         nvim_style2 = " ",
@@ -166,10 +181,44 @@ return {
 	    c = { fg = tropicals.ocean_mist, bg = "NONE" },
 	  },
 	}
+
+	local lualine_theme_dracula = {
+	  normal = {
+	    -- Mode Normal : Le violet classique de Dracula
+	    a = { fg = dracula.background, bg = dracula.purple, gui = "bold" },
+	    -- Section B : Gris clair pour faire la transition
+	    b = { fg = dracula.foreground, bg = dracula.current_line },
+	    -- Section C : Fond sombre naturel avec texte clair
+	    c = { fg = dracula.foreground, bg = dracula.background },
+	  },
+	  insert = {
+	    -- Mode Insertion : Vert néon
+	    a = { fg = dracula.background, bg = dracula.green, gui = "bold" },
+	  },
+	  visual = {
+	    -- Mode Visuel : Rose vif (très typique de Dracula)
+	    a = { fg = dracula.background, bg = dracula.pink, gui = "bold" },
+	  },
+	  replace = {
+	    -- Mode Remplacement : Rouge
+	    a = { fg = dracula.background, bg = dracula.red, gui = "bold" },
+	  },
+	  command = {
+	    -- Mode Commande : Cyan
+	    a = { fg = dracula.background, bg = dracula.cyan, gui = "bold" },
+	  },
+	  inactive = {
+	    -- Quand la fenêtre n'a pas le focus : on utilise la couleur 'comment' (gris/bleu discret)
+	    a = { fg = dracula.comment, bg = dracula.background },
+	    b = { fg = dracula.comment, bg = dracula.background },
+	    c = { fg = dracula.comment, bg = dracula.background },
+	  },
+	}
+
       -- 3. On retourne la configuration complète
       return {
         options = {
-          theme = lualine_theme_tropical, -- On applique notre thème
+          theme = lualine_theme_dracula, -- On applique notre thème
           section_separators = { left = "", right = "" },
           component_separators = { left = "", right = "" },
           globalstatus = true,
