@@ -25,6 +25,6 @@ return {
     })
 
     -- Active le thème nativement pour ta config custom=
-	--vim.cmd.colorscheme("catppuccin")
+	vim.cmd.colorscheme("catppuccin-macchiato")
   end,
 }
