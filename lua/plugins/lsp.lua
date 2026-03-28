@@ -1,5 +1,6 @@
 return {
   "neovim/nvim-lspconfig", -- Le plugin principal pour configurer le LSP
+  enabled = false,
   dependencies = {
     "williamboman/mason.nvim",           -- Le gestionnaire/installateur de serveurs LSP
     "williamboman/mason-lspconfig.nvim", -- Fait le lien entre Mason et lspconfig

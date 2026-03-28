@@ -1,5 +1,6 @@
 return {
   "hrsh7th/nvim-cmp",
+  enabled = false,
   -- Lazy permet de définir des dépendances : ces plugins seront installés en même temps
   dependencies = {
     "hrsh7th/cmp-buffer",       -- Suggère les mots déjà présents dans le fichier
