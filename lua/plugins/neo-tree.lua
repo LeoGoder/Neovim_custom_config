@@ -24,7 +24,7 @@ return {
       close_if_last_window = true,
       -- Configuration spécifique de la fenêtre
 	window = {
-        position = "float",
+        position = "left",
         popup = {
           border = "rounded",
           -- C'est cette ligne qui centre la fenêtre :
