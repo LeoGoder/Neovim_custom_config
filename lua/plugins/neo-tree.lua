@@ -44,8 +44,9 @@ return {
         },
       },
     })
-    vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#00CC00" })
-    vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#00CC00" })
-    vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#00CC00", bold = true })
+    vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#fab387" })
+    vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#fab387" })
+    vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#fab387", bold = true })
+    vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#cdd6f4" })
   end,
 }
