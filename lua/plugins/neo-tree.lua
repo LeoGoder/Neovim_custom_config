@@ -44,5 +44,8 @@ return {
         },
       },
     })
+    vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#00CC00" })
+    vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#00CC00" })
+    vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#00CC00", bold = true })
   end,
 }
