@@ -13,7 +13,8 @@ return {
   config = function()
     require("toggleterm").setup({
       -- On a retiré open_mapping d'ici car il est géré par lazy.nvim plus haut
-      direction = "float",
+      -- float centre le terminal
+      direction = "horizontal",
       float_opts = {
         border = "curved",
       },
