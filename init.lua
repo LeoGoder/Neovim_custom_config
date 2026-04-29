@@ -31,7 +31,7 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.shiftwidth = 4
 	end,
 })
--- vim.cmd("colorscheme dracula")
+vim.cmd("colorscheme dracula")
 -- Pour que les variables et paramètres soient de la même couleur
 vim.api.nvim_set_hl(0, "@variable", { link = "@parameter" })
 -- Optionnel : si tu veux aussi que les variables membres (self.xxx) soient colorées

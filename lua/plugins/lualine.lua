@@ -1,4 +1,4 @@
-local lualine_enabled = false
+local lualine_enabled = true
 
 return {
   {
@@ -224,7 +224,7 @@ return {
           globalstatus = true,
         },
         sections = {
-          lualine_a = { { "mode", fmt = function(str) return icons.space_invader .. (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
+          lualine_a = { { "mode", fmt = function(str) return icons.vim .. (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
           lualine_b = { {"branch", icon = icons.git} },
           lualine_c = { "filetype", "filename" }, -- C'est ici le milieu
           lualine_x = { "encoding", "fileformat" },
