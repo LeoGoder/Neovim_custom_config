@@ -25,6 +25,6 @@ return {
     })
 
     -- Active le thème nativement pour ta config custom=
-	-- vim.cmd.colorscheme("catppuccin-mocha")
+	vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }
