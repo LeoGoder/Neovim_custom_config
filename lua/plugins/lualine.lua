@@ -219,8 +219,10 @@ return {
       return {
         options = {
           theme = lualine_theme_dracula, -- On applique notre thème
-          section_separators = { left = "", right = "" },
-          component_separators = { left = "", right = "" },
+	  -- section_separators = { left = "", right = "" },
+          -- component_separators = { left = "", right = "" },
+          section_separators = { left = "", right = "" },
+          component_separators = { left = "|", right = "|" },
           globalstatus = true,
         },
         sections = {
