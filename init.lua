@@ -37,4 +37,5 @@ vim.api.nvim_set_hl(0, "@variable", { link = "@parameter" })
 -- Optionnel : si tu veux aussi que les variables membres (self.xxx) soient colorées
 vim.api.nvim_set_hl(0, "@variable.member", { link = "@parameter" })
 -- 2. Initialisation de Lazy en lui disant de charger le dossier "lua/plugins"
+vim.opt.cmdheight = 0
 require("lazy").setup("plugins")
