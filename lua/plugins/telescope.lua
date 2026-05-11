@@ -1,5 +1,6 @@
 return { -- <--- Ajoute le "return" ici
     'nvim-telescope/telescope.nvim',
+    cmd = "Telescope",
     version = '*',
     dependencies = {
         'nvim-lua/plenary.nvim',
