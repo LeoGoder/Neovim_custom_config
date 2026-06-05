@@ -1,4 +1,4 @@
-local lualine_enabled = true
+local lualine_enabled = false
 
 return {
   {
