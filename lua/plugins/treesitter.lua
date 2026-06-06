@@ -1,5 +1,6 @@
 return {
   "nvim-treesitter/nvim-treesitter",
+  enabled = true,
   build = ":TSUpdate",
   config = function()
     -- Installer les parsers automatiquement au démarrage
