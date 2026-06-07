@@ -219,7 +219,17 @@ return {
 	    c = { fg = dracula.comment, bg = dracula.background },
 	  },
 	}
-
+	local function lsp_clients()
+	  local clients = vim.lsp.get_clients({ bufnr = 0 })
+	  if #clients == 0 then
+	    return "Aucun LSP"
+	  end
+	  local client_names = {}
+	  for _, client in ipairs(clients) do
+	    table.insert(client_names, client.name)
+	  end
+	  return " " .. table.concat(client_names, ", ")
+	end
       -- 3. On retourne la configuration complète
       return {
         options = {
@@ -230,14 +240,33 @@ return {
           component_separators = { left = "|", right = "|" },
           globalstatus = true,
         },
-        sections = {
-          lualine_a = { { "mode", fmt = function(str) return icons.vim .. (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
-          lualine_b = { {"branch", icon = icons.git} },
-          lualine_c = { "filetype", "filename" }, -- C'est ici le milieu
-          lualine_x = { "encoding", "fileformat" },
-          lualine_y = { "progress" },
-          lualine_z = { "location" },
-        },
+	sections = {
+	  lualine_a = { { "mode", fmt = function(str) return icons.vim .. (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
+	  lualine_b = { {"branch", icon = icons.git} },
+	  lualine_c = { 
+	    "filetype", 
+	    "filename",
+	    {
+	      "diagnostics",
+	      sources = { "nvim_diagnostic" },
+	      symbols = { error = " ", warn = " ", info = " ", hint = " " },
+	      -- Les diagnostics utilisent les couleurs natives de Neovim (DiagnosticError, etc.)
+	      -- Si tes couleurs te posent problème, tu peux forcer l'arrière-plan de ce composant à être transparent :
+	      -- color = { bg = 'NONE' } 
+	    }
+	  },
+	  lualine_x = { 
+	    {
+	      lsp_clients,
+	      -- Tu peux sécuriser l'affichage avec une couleur spécifique si tu as peur que ça jure avec ton thème
+	      -- color = { fg = "#ffffff", gui = "bold" } 
+	    },
+	    "encoding", 
+	    "fileformat" 
+	  },
+	  lualine_y = { "progress" },
+	  lualine_z = { "location" },
+	},
       }
     end,
   },
