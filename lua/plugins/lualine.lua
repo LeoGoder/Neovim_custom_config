@@ -78,27 +78,27 @@ return {
         normal = {
           a = { fg = colors.bg, bg = colors.purple, gui = "NONE" }, -- Mode Normal
           b = { fg = colors.purple, bg = colors.slate_grey },
-          c = { fg = colors.slate_grey, bg = colors.bg },               -- LE MILIEU (Normal)
+          c = { fg = colors.grey, bg = colors.bg },               -- LE MILIEU (Normal)
         },
         insert = {
           a = { fg = colors.bg, bg = colors.red, gui = "NONE" }, -- Mode Insertion
           b = { fg = colors.red, bg = colors.slate_grey },
-          c = { fg = colors.slate_grey, bg = colors.bg },
+          c = { fg = colors.grey, bg = colors.bg },
         },
         visual = {
           a = { fg = colors.bg, bg = colors.green, gui = "NONE" }, -- Mode Visuel
           b = { fg = colors.green, bg = colors.slate_grey },
-          c = { fg = colors.slate_grey, bg = colors.bg },
+          c = { fg = colors.grey, bg = colors.bg },
         },
         replace = {
           a = { fg = colors.bg, bg = colors.yellow, gui = "NONE" },    -- Mode Remplacement
           b = { fg = colors.yellow, bg = colors.slate_grey },
-          c = { fg = colors.slate_grey, bg = colors.bg },
+          c = { fg = colors.grey, bg = colors.bg },
         },
         command = {
           a = { fg = colors.bg, bg = colors.orange, gui = "NONE" }, -- Mode Commande
           b = { fg = colors.orange, bg = colors.slate_grey },
-          c = { fg = colors.slate_grey, bg = colors.bg },
+          c = { fg = colors.grey, bg = colors.bg },
         },
       }
 
@@ -236,8 +236,10 @@ return {
           theme = my_custom_theme, -- On applique notre thème
 	  -- section_separators = { left = "", right = "" },
           -- component_separators = { left = "", right = "" },
-          section_separators = { left = "", right = "" },
-          component_separators = { left = "|", right = "|" },
+	  section_separators = { left = "", right = "" },
+	  component_separators = { left = "", right = "" },
+          -- section_separators = { left = "", right = "" },
+          -- component_separators = { left = "|", right = "|" },
           globalstatus = true,
         },
 	sections = {
