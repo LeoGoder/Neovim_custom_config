@@ -10,6 +10,10 @@ return {
       transparent_background = false,
       term_colors = true,
 
+      float = {
+	transparent = true,
+      },
+
       dim_inactive = {
         enabled = false,
       },

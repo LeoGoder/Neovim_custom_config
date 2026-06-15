@@ -20,6 +20,7 @@ return {
         -- Bordures arrondies pour le menu principal de complétion
         completion = cmp.config.window.bordered({
           border = "rounded",
+	  -- rounded, single, solid, double
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
         }),
         -- Bordures arrondies pour la petite fenêtre de documentation à côté
