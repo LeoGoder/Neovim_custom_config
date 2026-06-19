@@ -243,7 +243,8 @@ return {
           globalstatus = true,
         },
 	sections = {
-	  lualine_a = { { "mode", fmt = function(str) return icons.vim .. (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
+		--function(str) return icons.vim ..
+	  lualine_a = { { "mode", fmt = function(str) return (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
 	  lualine_b = { {"branch", icon = icons.git} },
 	  lualine_c = { 
 	    "filetype", 
@@ -252,16 +253,11 @@ return {
 	      "diagnostics",
 	      sources = { "nvim_diagnostic" },
 	      symbols = { error = " ", warn = " ", info = " ", hint = " " },
-	      -- Les diagnostics utilisent les couleurs natives de Neovim (DiagnosticError, etc.)
-	      -- Si tes couleurs te posent problème, tu peux forcer l'arrière-plan de ce composant à être transparent :
-	      -- color = { bg = 'NONE' } 
 	    }
 	  },
 	  lualine_x = { 
 	    {
 	      lsp_clients,
-	      -- Tu peux sécuriser l'affichage avec une couleur spécifique si tu as peur que ça jure avec ton thème
-	      -- color = { fg = "#ffffff", gui = "bold" } 
 	    },
 	    "encoding", 
 	    "fileformat" 
