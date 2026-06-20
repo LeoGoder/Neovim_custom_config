@@ -44,9 +44,11 @@ return {
         },
       },
     })
-    vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#fab387" })
-    vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#fab387" })
-    vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#fab387", bold = true })
-    vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#cdd6f4" })
+    -- #fab387 orange
+    --#cdd6f4 don't fucking remember what color is this
+    -- vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#ffffff" })
+    -- vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#ffffff" })
+    -- vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#ffffff", bold = true })
+    -- vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#cdd6f4" })
   end,
 }
