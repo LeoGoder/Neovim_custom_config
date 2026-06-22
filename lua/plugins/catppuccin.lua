@@ -7,7 +7,7 @@ return {
     require('catppuccin').setup({
       flavour = "mocha", -- "latte", "frappe", "macchiato", ou "mocha"
 
-      transparent_background = false,
+      transparent_background = true,
       term_colors = true,
 
       float = {
@@ -29,6 +29,6 @@ return {
     })
 
     -- Active le thème nativement pour ta config custom=
-    -- vim.cmd.colorscheme("catppuccin-mocha")
+    vim.cmd.colorscheme("catppuccin-mocha")
   end,
 }

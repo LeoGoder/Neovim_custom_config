@@ -10,8 +10,6 @@ return {
       
       transparent = false,     -- Équivalent de transparent_background = false
       terminal_colors = true,  -- Équivalent de term_colors = true
-      dim_inactive = false,    -- Équivalent de dim_inactive = { enabled = false }
-
       styles = {
         -- Configuration des styles de syntaxe
         comments = { italic = true }, -- Équivalent de comments = { "italic" }
@@ -25,6 +23,6 @@ return {
     })
 
     -- Active le thème
-    vim.cmd.colorscheme("tokyonight")
+    -- vim.cmd.colorscheme("tokyonight")
   end,
 }
