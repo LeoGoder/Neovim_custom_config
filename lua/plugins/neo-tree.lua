@@ -25,12 +25,13 @@ return {
       -- Configuration spécifique de la fenêtre
 	window = {
         position = "left",
+        width = 30,
         popup = {
           border = "rounded",
           -- C'est cette ligne qui centre la fenêtre :
           position = "50%",
           -- Tu peux aussi ajuster la taille si tu la trouves trop petite/grande :
-          size = { width = 80, height = "80%" },
+          size = { width = 40, height = "80%" },
         },
         mappings = {
           -- Tes raccourcis...
@@ -44,11 +45,5 @@ return {
         },
       },
     })
-    -- #fab387 orange
-    --#cdd6f4 don't fucking remember what color is this
-    -- vim.api.nvim_set_hl(0, "NeoTreeDirectoryIcon", { fg = "#ffffff" })
-    -- vim.api.nvim_set_hl(0, "NeoTreeDirectoryName", { fg = "#ffffff" })
-    -- vim.api.nvim_set_hl(0, "NeoTreeRootName", { fg = "#ffffff", bold = true })
-    -- vim.api.nvim_set_hl(0, "NeoTreeFileName", { fg = "#cdd6f4" })
   end,
 }
