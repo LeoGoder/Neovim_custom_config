@@ -9,6 +9,8 @@ return {
     require("bufferline").setup({
       options = {
         mode = "buffers", -- Affiche les buffers ouverts (comme VSCode)
+        close_command = "Bdelete! %d",
+        right_mouse_command = "Bdelete! %d",
         separator_style = "thin", -- Style visuel ("slant", "thick", "thin", etc.)
         always_show_bufferline = true,
         show_buffer_close_icons = true,
