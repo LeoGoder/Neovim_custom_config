@@ -50,8 +50,8 @@ return {
       -- 2. On crée le thème personnalisé
       local my_custom_theme = {
         normal = {
-          a = { fg = colors.bg, bg = colors.white, gui = "NONE" }, -- Mode Normal
-          b = { fg = colors.white, bg = colors.slate_grey },
+          a = { fg = colors.bg, bg = colors.blue, gui = "NONE" }, -- Mode Normal
+          b = { fg = colors.blue, bg = colors.slate_grey },
           c = { fg = colors.grey, bg = colors.bg },               -- LE MILIEU (Normal)
         },
         insert = {
@@ -60,8 +60,8 @@ return {
           c = { fg = colors.grey, bg = colors.bg },
         },
         visual = {
-          a = { fg = colors.bg, bg = colors.teal, gui = "NONE" }, -- Mode Visuel
-          b = { fg = colors.teal, bg = colors.slate_grey },
+          a = { fg = colors.bg, bg = colors.purple, gui = "NONE" }, -- Mode Visuel
+          b = { fg = colors.purple, bg = colors.slate_grey },
           c = { fg = colors.grey, bg = colors.bg },
         },
         replace = {
@@ -103,7 +103,7 @@ return {
         },
 	sections = {
 		--function(str) return icons.vim ..
-	  lualine_a = { { "mode", fmt = function(str) return icons.vim .. (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
+	  lualine_a = { { "mode", fmt = function(str) return (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
 	  lualine_b = {  
         {
 	    "filetype", 
