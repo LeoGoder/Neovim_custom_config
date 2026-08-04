@@ -32,6 +32,7 @@ return {
           -- C'est cette ligne qui centre la fenêtre :
           position = "50%",
           -- Tu peux aussi ajuster la taille si tu la trouves trop petite/grande :
+          -- 40 si mis a gauche, 100 en float
           size = { width = 40, height = "80%" },
         },
         mappings = {
