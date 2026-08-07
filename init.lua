@@ -19,6 +19,7 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.relativenumber = true  -- Affiche les distances relatives pour les autres lignes
+vim.opt.guicursor = ""
 -- config special for c/c++ and make
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "c","make" },
