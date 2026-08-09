@@ -1,4 +1,4 @@
-local lualine_enabled = false
+local lualine_enabled = true
 
 return {
   {
@@ -95,10 +95,10 @@ return {
           -- component_separators = { left = "", right = "" },
 	  -- section_separators = { left = "", right = "" },
       -- component_separators = { left = "", right = "" },
-	  section_separators = { left = "", right = "" },
-	  component_separators = { left = "", right = "" },
-          -- section_separators = { left = "", right = "" },
-          -- component_separators = { left = "|", right = "|" },
+	  -- section_separators = { left = "", right = "" },
+	  -- component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
+      component_separators = { left = "|", right = "|" },
           globalstatus = true,
         },
 	sections = {
