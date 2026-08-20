@@ -10,3 +10,10 @@ git clone git@github.com:LeoGoder/Neovim_custom_config.git ~/.config/nvim
 ```
 git clone git@github.com:LeoGoder/Neovim_custom_config.git $env:LOCALAPPDATA\nvim
 ```
+
+## delete config
+```sh
+rm -fr ~/.config/nvim
+rm -rf ~/.local/share/nvim/lazy
+rm -rf ~/.local/state/nvim
+```
