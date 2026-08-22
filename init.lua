@@ -1,9 +1,27 @@
 vim.opt.expandtab = true  -- Espaces par défaut partout
 vim.opt.tabstop = 4       -- 1 tab = 4 espaces
 vim.opt.shiftwidth = 4
--- Ajoute le dossier "bin" de la config Neovim au début du PATH
-local config_bin_path = vim.fn.stdpath("config") .. "/bin"
-vim.env.PATH = config_bin_path .. ":" .. vim.env.PATH
+
+local uv = vim.uv or vim.loop
+local os_info = uv.os_uname()
+local sysname = string.lower(os_info.sysname)
+if sysname == "windows_nt" then sysname = "windows" end
+
+local machine = string.lower(os_info.machine)
+local arch = machine
+if arch == "x86_64" or arch == "amd64" then
+    arch = "x64"
+elseif arch == "aarch64" then
+    arch = "arm64"
+end
+
+local target_bin_path = vim.fn.stdpath("config") .. "/bin/" .. sysname .. "-" .. arch
+print(target_bin_path)
+
+if vim.fn.isdirectory(target_bin_path) == 1 then
+    vim.env.PATH = target_bin_path .. ":" .. vim.env.PATH
+end
+
 -- 1. Téléchargement automatique de lazy.nvim s'il n'est pas installé
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
