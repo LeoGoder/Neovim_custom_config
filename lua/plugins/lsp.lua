@@ -13,7 +13,7 @@ return {
     -- 2. Configurer mason-lspconfig
     -- Dans les nouvelles versions, il se charge de démarrer les serveurs tout seul !
     require("mason-lspconfig").setup({
-      ensure_installed = { "lua_ls" },
+      ensure_installed = { "lua_ls" , "pyright", "clangd"},
     })
 
     -- 3. NOUVELLE MÉTHODE : On injecte les capacités d'autocomplétion 
