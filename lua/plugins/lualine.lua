@@ -128,7 +128,7 @@ return {
 	    {
 	      lsp_clients,
 	    },
-	    "encoding", 
+	    -- "encoding", 
 	    "fileformat" 
 	  },
 	  lualine_y = { "progress" },

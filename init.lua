@@ -40,7 +40,8 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.relativenumber = true  -- Affiche les distances relatives pour les autres lignes
-vim.opt.guicursor = ""
+vim.opt.number = true
+-- vim.opt.guicursor = ""
 -- config special for c/c++ and make
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "c","make" },
@@ -50,9 +51,5 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.shiftwidth = 4
 	end,
 })
--- Pour que les variables et paramètres soient de la même couleur
-vim.api.nvim_set_hl(0, "@variable", { link = "@parameter" })
--- Optionnel : si tu veux aussi que les variables membres (self.xxx) soient colorées
-vim.api.nvim_set_hl(0, "@variable.member", { link = "@parameter" })
 -- 2. Initialisation de Lazy en lui disant de charger le dossier "lua/plugins"
 require("lazy").setup("plugins")
