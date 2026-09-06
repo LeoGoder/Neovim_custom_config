@@ -1,5 +1,5 @@
-vim.opt.expandtab = true  -- Espaces par défaut partout
-vim.opt.tabstop = 4       -- 1 tab = 4 espaces
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
 local uv = vim.uv or vim.loop
@@ -30,16 +30,15 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		"clone",
 		"--filter=blob:none",
 		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- utilise la dernière version stable
+		"--branch=stable",
 		lazypath,
 	})
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Définir la touche "leader" (Espace est très commun et recommandé)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.opt.relativenumber = true  -- Affiche les distances relatives pour les autres lignes
+vim.opt.relativenumber = true
 vim.opt.number = true
 -- vim.opt.guicursor = ""
 -- config special for c/c++ and make
@@ -51,5 +50,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.opt_local.shiftwidth = 4
 	end,
 })
+
 -- 2. Initialisation de Lazy en lui disant de charger le dossier "lua/plugins"
 require("lazy").setup("plugins")

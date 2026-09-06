@@ -51,28 +51,28 @@ return {
       local my_custom_theme = {
         normal = {
           a = { fg = colors.bg, bg = colors.blue, gui = "NONE" }, -- Mode Normal
-          b = { fg = colors.blue, bg = colors.slate_grey },
-          c = { fg = colors.grey, bg = colors.bg },               -- LE MILIEU (Normal)
+          b = { fg = colors.white, bg = "NONE" },
+          c = { fg = colors.white, bg = "NONE" },               -- LE MILIEU (Normal)
         },
         insert = {
           a = { fg = colors.bg, bg = colors.red_pink, gui = "NONE" }, -- Mode Insertion
-          b = { fg = colors.red_pink, bg = colors.slate_grey },
-          c = { fg = colors.grey, bg = colors.bg },
+          b = { fg = colors.white, bg = "NONE" },
+          c = { fg = colors.white, bg = "NONE" },
         },
         visual = {
           a = { fg = colors.bg, bg = colors.purple, gui = "NONE" }, -- Mode Visuel
-          b = { fg = colors.purple, bg = colors.slate_grey },
-          c = { fg = colors.grey, bg = colors.bg },
+          b = { fg = colors.white, bg = "NONE" },
+          c = { fg = colors.white, bg = "NONE" },
         },
         replace = {
           a = { fg = colors.bg, bg = colors.yellow_sky, gui = "NONE" },    -- Mode Remplacement
-          b = { fg = colors.yellow_sky, bg = colors.slate_grey },
-          c = { fg = colors.grey, bg = colors.bg },
+          b = { fg = colors.white, bg = "NONE" },
+          c = { fg = colors.white, bg = "NONE" },
         },
         command = {
           a = { fg = colors.bg, bg = colors.abricot, gui = "NONE" }, -- Mode Commande
-          b = { fg = colors.abricot, bg = colors.slate_grey },
-          c = { fg = colors.grey, bg = colors.bg },
+          b = { fg = colors.white, bg = "NONE" },
+          c = { fg = colors.white, bg = "NONE" },
         },
       }
 
@@ -102,9 +102,8 @@ return {
           globalstatus = true,
         },
 	sections = {
-		--function(str) return icons.vim ..
 	  lualine_a = { { "mode", fmt = function(str) return (str:sub(1, 1) == "V" and "VISUAL" or str) end } },
-	  lualine_b = {  
+	  lualine_b = {
         -- {
 	    -- "filetype", 
         -- icon_only = false,
@@ -116,7 +115,7 @@ return {
         padding = { left = 1, right = 1},
         },
     },
-	  lualine_c = { 
+	  lualine_c = {
         {"branch", icon = icons.git},
 	    {
 	      "diagnostics",
@@ -124,12 +123,12 @@ return {
 	      symbols = { error = " ", warn = " ", info = " ", hint = " " },
 	    }
 	  },
-	  lualine_x = { 
+	  lualine_x = {
 	    {
 	      lsp_clients,
 	    },
 	    -- "encoding", 
-	    "fileformat" 
+	    "fileformat"
 	  },
 	  lualine_y = { "progress" },
 	  lualine_z = { "location" },
