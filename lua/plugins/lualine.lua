@@ -24,9 +24,19 @@ return {
 	purple       = "#BD93F9",
         grey     = "#808080",
         white     = "#ffffff",
+        cat_text = "#cdd6f4",
         slate_grey = "#2c323c",
         deep_plum = "#2d2a2e",
         mid_blue = "#1e1e2e",
+        cat_peach = "#fab387",
+        cat_red = "#f38ba8",
+        cat_yellow = "#f9e2af",
+        cat_green = "#a6e3a1",
+        cat_pink = "#f5c2e7",
+        cat_mauve = "#cba6f7",
+        cat_teal = "#94e2d5",
+        cat_sapphire = "#74c7ec",
+        cat_crust = "#11111b",
       }
 
       local icons = {
@@ -50,29 +60,29 @@ return {
       -- 2. On crée le thème personnalisé
       local my_custom_theme = {
         normal = {
-          a = { fg = colors.bg, bg = colors.blue, gui = "NONE" }, -- Mode Normal
-          b = { fg = colors.white, bg = "NONE" },
-          c = { fg = colors.white, bg = "NONE" },               -- LE MILIEU (Normal)
+          a = { fg = colors.bg, bg = colors.cat_pink, gui = "NONE" }, -- Mode Normal
+          b = { fg = colors.cat_text, bg = colors.cat_crust },
+          c = { fg = colors.cat_text, bg = colors.cat_crust },               -- LE MILIEU (Normal)
         },
         insert = {
-          a = { fg = colors.bg, bg = colors.red_pink, gui = "NONE" }, -- Mode Insertion
-          b = { fg = colors.white, bg = "NONE" },
-          c = { fg = colors.white, bg = "NONE" },
+          a = { fg = colors.bg, bg = colors.cat_green, gui = "NONE" }, -- Mode Insertion
+          b = { fg = colors.cat_text, bg = colors.cat_crust },
+          c = { fg = colors.cat_text, bg = colors.cat_crust },
         },
         visual = {
-          a = { fg = colors.bg, bg = colors.purple, gui = "NONE" }, -- Mode Visuel
-          b = { fg = colors.white, bg = "NONE" },
-          c = { fg = colors.white, bg = "NONE" },
+          a = { fg = colors.bg, bg = colors.cat_mauve, gui = "NONE" }, -- Mode Visuel
+          b = { fg = colors.cat_text, bg = colors.cat_crust },
+          c = { fg = colors.cat_text, bg = colors.cat_crust },
         },
         replace = {
-          a = { fg = colors.bg, bg = colors.yellow_sky, gui = "NONE" },    -- Mode Remplacement
-          b = { fg = colors.white, bg = "NONE" },
-          c = { fg = colors.white, bg = "NONE" },
+          a = { fg = colors.bg, bg = colors.cat_red, gui = "NONE" },    -- Mode Remplacement
+          b = { fg = colors.cat_text, bg = colors.cat_crust },
+          c = { fg = colors.cat_text, bg = colors.cat_crust },
         },
         command = {
-          a = { fg = colors.bg, bg = colors.abricot, gui = "NONE" }, -- Mode Commande
-          b = { fg = colors.white, bg = "NONE" },
-          c = { fg = colors.white, bg = "NONE" },
+          a = { fg = colors.bg, bg = colors.cat_peach, gui = "NONE" }, -- Mode Commande
+          b = { fg = colors.cat_text, bg = colors.cat_crust },
+          c = { fg = colors.cat_text, bg = colors.cat_crust },
         },
       }
 
