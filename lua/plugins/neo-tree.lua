@@ -1,8 +1,20 @@
 return {
+  {
+    "echasnovski/mini.icons",
+    opts = {},
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end,
+  },
+  {
   "nvim-neo-tree/neo-tree.nvim",
   branch = "v3.x",
   enabled = true,
   dependencies = {
+    "echasnovski/mini.icons",
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",
     "MunifTanjim/nui.nvim",
@@ -23,7 +35,29 @@ return {
 
     require("neo-tree").setup({
       close_if_last_window = true,
-      -- Configuration spécifique de la fenêtre
+      default_component_configs = {
+      icon = {
+      provider = function(icon, node, state)
+        local has_mini, mini_icons = pcall(require, "mini.icons")
+        if not has_mini then return end
+      
+        if node.type == "directory" then
+          local icon_str, hl, is_default = mini_icons.get("directory", node.name)
+          if not is_default then
+            icon.text = icon_str
+            icon.highlight = hl
+          end
+        elseif node.type == "file" then
+          -- On demande à mini.icons de gérer les fichiers (il lit automatiquement l'extension ou le nom exact)
+          local icon_str, hl = mini_icons.get("file", node.name)
+          if icon_str then
+            icon.text = icon_str
+            icon.highlight = hl
+          end
+        end
+      end
+      },
+    },
 	window = {
         position = "left",
         width = 30,
@@ -49,4 +83,5 @@ return {
       },
     })
   end,
+  }
 }
