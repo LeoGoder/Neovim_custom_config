@@ -2,12 +2,12 @@ return {
   {
     "echasnovski/mini.icons",
     opts = {},
-    init = function()
-      package.preload["nvim-web-devicons"] = function()
-        require("mini.icons").mock_nvim_web_devicons()
-        return package.loaded["nvim-web-devicons"]
-      end
-    end,
+    -- init = function()
+    --   package.preload["nvim-web-devicons"] = function()
+    --     require("mini.icons").mock_nvim_web_devicons()
+    --     return package.loaded["nvim-web-devicons"]
+    --   end
+    -- end,
   },
   {
   "nvim-neo-tree/neo-tree.nvim",
@@ -48,12 +48,15 @@ return {
             icon.highlight = hl
           end
         elseif node.type == "file" then
-          -- On demande à mini.icons de gérer les fichiers (il lit automatiquement l'extension ou le nom exact)
-          local icon_str, hl = mini_icons.get("file", node.name)
-          if icon_str then
-            icon.text = icon_str
-            icon.highlight = hl
-          end
+            local has_devicons, devicons = pcall(require, "nvim-web-devicons")
+            if has_devicons then
+              -- Fait appel à nvim-web-devicons en utilisant le nom ET l'extension du fichier
+              local icon_str, hl = devicons.get_icon(node.name, node.ext, { default = true })
+              if icon_str then
+                icon.text = icon_str
+                icon.highlight = hl
+              end
+            end
         end
       end
       },
