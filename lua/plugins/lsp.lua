@@ -4,7 +4,7 @@ return {
   dependencies = {
     "williamboman/mason.nvim",           -- Le gestionnaire/installateur de serveurs LSP
     "williamboman/mason-lspconfig.nvim", -- Fait le lien entre Mason et lspconfig
-    "hrsh7th/cmp-nvim-lsp",              -- Permet à nvim-cmp de lire les suggestions du LSP
+    -- "hrsh7th/cmp-nvim-lsp",              -- Permet à nvim-cmp de lire les suggestions du LSP
   },
   config = function()
     -- 1. Initialiser Mason (l'interface visuelle)
@@ -22,11 +22,9 @@ return {
     lspconfig_defaults.capabilities = vim.tbl_deep_extend(
       "force",
       lspconfig_defaults.capabilities,
-      require("cmp_nvim_lsp").default_capabilities()
+      -- require("cmp_nvim_lsp").default_capabilities()
+      require('blink.cmp').get_lsp_capabilities()
     )
--- ==========================================================
-    -- Configuration de l'affichage des erreurs et warnings
-    -- ==========================================================
     vim.diagnostic.config({
       -- Affiche le texte d'erreur directement à la fin de la ligne (Virtual Text)
       virtual_text = {
@@ -62,9 +60,24 @@ return {
 	  },
 	})
 
+    -- ==========================================================
+    -- Bordures arrondies pour les fenêtres flottantes (hover, signature)
+    -- ==========================================================
+    local orig_hover = vim.lsp.handlers["textDocument/hover"]
+    vim.lsp.handlers["textDocument/hover"] = function(err, result, ctx, config)
+      config = vim.tbl_extend("force", config or {}, { border = "rounded" })
+      return orig_hover(err, result, ctx, config)
+    end
+
+    local orig_sig = vim.lsp.handlers["textDocument/signatureHelp"]
+    vim.lsp.handlers["textDocument/signatureHelp"] = function(err, result, ctx, config)
+      config = vim.tbl_extend("force", config or {}, { border = "rounded" })
+      return orig_sig(err, result, ctx, config)
+    end
+
     -- 4. Quelques raccourcis clavier très utiles pour le LSP
     vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { desc = "Aller à la définition" })
-    vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "Afficher la documentation" })
+    vim.keymap.set('n', 'K', function() vim.lsp.buf.hover({ border = "rounded" }) end, { desc = "Afficher la documentation" })
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "Actions de code" })
     vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, { desc = "Renommer" })
   end,
