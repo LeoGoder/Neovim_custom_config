@@ -62,7 +62,7 @@ return {
       },
     },
 	window = {
-        position = "left",
+        position = "right",
         width = 30,
         popup = {
           border = "rounded",
