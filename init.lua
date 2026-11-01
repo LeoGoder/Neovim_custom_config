@@ -41,9 +41,8 @@ vim.g.maplocalleader = " "
 vim.opt.relativenumber = true
 vim.opt.number = true
 -- vim.opt.guicursor = ""
--- config special for c/c++ and make
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "c","make" },
+	pattern = { "c","make", "go" },
 	callback = function()
 		vim.opt_local.expandtab = false -- Désactive la conversion en espaces
 		vim.opt_local.tabstop = 4 -- Souvent 8 en C, mais tu peux mettre 4
