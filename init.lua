@@ -40,6 +40,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.relativenumber = true
 vim.opt.number = true
+vim.opt.scrolloff=10
 -- vim.opt.guicursor = ""
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = { "c","make", "go" },
