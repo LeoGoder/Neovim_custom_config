@@ -39,11 +39,20 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.relativenumber = true
-vim.opt.number = true
 vim.opt.scrolloff=10
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- keep centered on navigation
+vim.keymap.set('n', '<C-d>', '<C-d>zz')
+vim.keymap.set('n', '<C-u>', '<C-u>zz')
+
+-- indent
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
+
+vim.keymap.set('n', '<Esc>', ':noh<CR>', { silent = true })
 
 -- vim.opt.guicursor = ""
 vim.api.nvim_create_autocmd("FileType", {
