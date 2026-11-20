@@ -40,6 +40,8 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.relativenumber = true
 vim.opt.scrolloff=10
+vim.opt.guicursor = "n-v-c-i:block"
+
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
