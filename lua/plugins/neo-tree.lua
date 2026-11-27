@@ -1,3 +1,5 @@
+local ntree_pos = "float"
+
 return {
   {
     "echasnovski/mini.icons",
@@ -61,16 +63,17 @@ return {
       end
       },
     },
+
 	window = {
-        position = "right",
-        width = 30,
+        position = ntree_pos, -- right, left, 
+        width = (ntree_pos == "float") and 100 or 40,
         popup = {
           border = "rounded",
           -- C'est cette ligne qui centre la fenêtre :
           position = "50%",
           -- Tu peux aussi ajuster la taille si tu la trouves trop petite/grande :
           -- 40 si mis a gauche, 100 en float
-          size = { width = 40, height = "80%" },
+          size = { width = (ntree_pos == "float") and 100 or 40, height = "80%" },
         },
         mappings = {
           -- Tes raccourcis...
